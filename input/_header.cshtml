@@ -36,7 +36,7 @@
                     .Select(x => Outputs["tags.html"].First().GetChildren().FirstOrDefault(y => y.GetTitle().Equals(x, StringComparison.OrdinalIgnoreCase)))
                     .Where(x => x != null))
                   {
-                      <a href="@Context.GetLink(tag)" class="badge badge-light"> @tag.GetTitle()</a>
+                      <a href="@Context.GetLink(tag)" class="badge badge-light"><i class="fa fas fa-tag"></i> @tag.GetTitle()</a>
                   }
                 </div>
               }

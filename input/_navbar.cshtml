@@ -1,12 +1,11 @@
+@{
+    IDocument tags = OutputPages.Get("tags.html");
+	IDocument posts = OutputPages.Get("posts.html");
+}
+
 <ul class="navbar-nav ml-auto">
-    @foreach(IDocument doc in OutputPages.GetChildrenOf("index.html").Where(x => x.GetBool("ShowInNavbar", true)).OrderBy(x => x.GetInt(Keys.Order)))
-    {
-        // Don't add the home page to the nav bar
-        if (doc.Destination != "index.html")
-        {
-            <li class="nav-item">
-                @Html.DocumentLink(doc, new Dictionary<object, object> { { "class", "nav-link" } })
-            </li>
-        }
-    }
+    
+	<li class="nav-item"><a class="nav-link" href="@tags.GetLink()"><i class="fa fas fa-tags"></i> Tags</a></li>
+    <li class="nav-item"><a class="nav-link" href="@posts.GetLink()"><i class="fa fas fa-archive"></i> Posts</a></li>
+	
 </ul>

@@ -7,7 +7,7 @@ ArchiveOrderDescending: true
     .GroupBy(x => x.GetDateTime(WebKeys.Published).Year)
     .OrderByDescending(x => x.Key))
 {
-    <h1 class="bg-dark text-light p-2">@group.Key</h1>
+    <h1 class="p-2"><i class="far fa-calendar-alt"></i> @group.Key</h1>
     foreach (IDocument post in group)
     {
         <div class="post-preview">
